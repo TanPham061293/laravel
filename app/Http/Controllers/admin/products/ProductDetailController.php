@@ -24,7 +24,7 @@ class ProductDetailController extends Controller
         // 	$keyword = htmlspecialchars($_REQUEST['keyword']);
         // 	$where .= " and (tenvi LIKE '%$keyword%' or tenen LIKE '%$keyword%')";
         // }
-        //dd($req->all());
+        
         $type = 'san-pham';
         $success = $req->success;
         $error = $req->error;

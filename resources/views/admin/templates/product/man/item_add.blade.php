@@ -372,23 +372,40 @@
                     </div>
                 </div>
                 <div class="card card-primary card-outline text-sm">
-                    {{-- <div class="card-header">
-                        <h3 class="card-title">Bộ sưu tập Sản Phẩm</h3>
+                    <div class="card-header">
+                        <h3 class="card-title">Bộ sưu tập</h3>
                         <div class="card-tools">
                             <button type="button" class="btn btn-tool" data-card-widget="collapse"><i
                                     class="fas fa-minus"></i></button>
                         </div>
-                    </div> --}}
-                    {{-- <div class="card-body">
+                    </div>
+                    <div class="card-body">
                         <div class="form-group">
-                            <label for="filer-gallery" class="label-filer-gallery mb-3">Album hình:
-                                (.jpg|.gif|.png|.jpeg|.gif|.JPG|.PNG|.JPEG|.Png|.GIF)</label>
+                            <label for="filer-gallery" class="label-filer-gallery mb-3">Album hình: </label>
                             <input type="file" name="files[]" id="filer-gallery" multiple="multiple">
                             <input type="hidden" class="col-filer" value="col-xl-2 col-lg-3 col-md-3 col-sm-4 col-6">
                             <input type="hidden" class="act-filer" value="man">
                             <input type="hidden" class="folder-filer" value="product">
                         </div>
-                    </div> --}}
+                        {{-- <?php if(isset($gallery) && count($gallery) > 0) { ?>
+                            <div class="form-group form-group-gallery">
+                                <label class="label-filer">Album hiện tại:</label>
+                                <div class="action-filer mb-3">
+                                    <a class="btn btn-sm bg-gradient-primary text-white check-all-filer mr-1"><i class="far fa-square mr-2"></i>Chọn tất cả</a>
+                                    <button type="button" class="btn btn-sm bg-gradient-success text-white sort-filer mr-1"><i class="fas fa-random mr-2"></i>Sắp xếp</button>
+                                    <a class="btn btn-sm bg-gradient-danger text-white delete-all-filer"><i class="far fa-trash-alt mr-2"></i>Xóa tất cả</a>
+                                </div>
+                                <div class="alert my-alert alert-sort-filer alert-info text-sm text-white bg-gradient-info"><i class="fas fa-info-circle mr-2"></i>Có thể chọn nhiều hình để di chuyển</div>
+                                <div class="jFiler-items my-jFiler-items jFiler-row">
+                                    <ul class="jFiler-items-list jFiler-items-grid row scroll-bar" id="jFilerSortable">
+                                        <?php foreach ($gallery as $v) {
+                                            echo $func->galleryFiler($v['stt'], $v['id'], $v['photo'], $v['tenvi'], 'product', 'col-xl-2 col-lg-3 col-md-3 col-sm-4 col-6');
+                                        } ?>
+                                    </ul>
+                                </div>
+                            </div>
+                        <?php } ?> --}}
+                    </div>
                 </div>
 
                 <div class="card-footer text-sm">

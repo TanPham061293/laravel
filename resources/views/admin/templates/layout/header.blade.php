@@ -14,7 +14,7 @@
     <ul class="navbar-nav ml-auto">
         <!-- Notifications -->
         <li class="nav-item d-sm-inline-block">
-            <a href="{{route('client.product')}}" target="_blank" class="nav-link"><i
+            <a href="{{route('client.home')}}" target="_blank" class="nav-link"><i
                     class="fas fa-reply"></i></a>
         </li>
         {{-- <li class="nav-item dropdown">

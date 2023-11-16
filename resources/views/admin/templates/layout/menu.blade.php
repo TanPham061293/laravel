@@ -648,17 +648,17 @@ $com = end($com);
                 <?php
                 $none = '';
                 $active = '';
-                if (isset($kiemtra) && $kiemtra == true) {
-                    if ($func->check_access('order', 'man', '', null, 'phrase-1')) {
-                        $none = 'd-none';
-                    }
-                }
-                if ($com == 'order') {
+                // if (isset($kiemtra) && $kiemtra == true) {
+                //     if ($func->check_access('order', 'man', '', null, 'phrase-1')) {
+                //         $none = 'd-none';
+                //     }
+                // }
+                if (Str::contains(Request::path(),'order')) {
                     $active = 'active';
                 }
                 ?>
                 <li class="nav-item <?= $active ?> <?= $none ?>">
-                    <a class="nav-link <?= $active ?>" href="order?act=man" title="Quản lý đơn hàng">
+                    <a class="nav-link <?= $active ?>" href="{{route('showOrder')}}" title="Quản lý đơn hàng">
                         <i class="nav-icon text-sm fas fa-shopping-bag"></i>
                         <p>Quản lý đơn hàng</p>
                     </a>
@@ -744,22 +744,25 @@ $com = end($com);
                 $none = '';
                 $active = '';
                 $menuopen = '';
-                if (isset($kiemtra) && $kiemtra == true) {
-                    if ($func->check_access('newsletter', 'man', '', $config['newsletter'], 'phrase-2')) {
-                        $none = 'd-none';
-                    }
-                }
-                if ($com == 'newsletter' && !isset($disabled['newsletter'][$_GET['type']])) {
+                // if (isset($kiemtra) && $kiemtra == true) {
+                //     if ($func->check_access('newsletter', 'man', '', $config['newsletter'], 'phrase-2')) {
+                //         $none = 'd-none';
+                //     }
+                // }
+                // if ($com == 'newsletter' && !isset($disabled['newsletter'][$_GET['type']])) {
+                //     $active = 'active';
+                //     $menuopen = 'menu-open';
+                // }
+                if (Str::contains(Request::path(),'newsletter')) {
                     $active = 'active';
-                    $menuopen = 'menu-open';
                 }
                 ?>
                 <li class="nav-item has-treeview <?= $menuopen ?> <?= $none ?>">
-                    <a class="nav-link <?= $active ?>" href="newsletter?act=man&type=dangkybaogia"
+                    <a class="nav-link <?= $active ?>" href="{{route('showNewLetter',['type'=>'dangkynhantin'])}}"
                         title="Quản lý nhận tin">
                         <i class="nav-icon text-sm fas fa-envelope"></i>
                         <p>
-                            Quản lý nhận báo giá
+                            Quản lý nhận tin
                         </p>
                     </a>
                 </li>
@@ -776,10 +779,10 @@ $com = end($com);
                         $none = 'd-none';
                     }
                 }
-                // if ($com == 'static' && !isset($disabled['static'][$_GET['type']])) {
-                //     $active = 'active';
-                //     $menuopen = '';
-                // }
+                 //if (isset($disabled['static'][$_GET['type']])) {
+                    // $active = 'active';
+                    // $menuopen = '';
+                 //}
                 ?>
                 <li class="nav-item has-treeview <?= $menuopen ?> <?= $none ?>">
                     <a class="nav-link <?= $active ?>" href="#" title="Quản lý trang tĩnh">
@@ -799,7 +802,7 @@ $com = end($com);
                                 $none = 'd-none';
                             }
                         }
-                        if ($com == 'static' && $k == $_GET['type']) {
+                        if (isset($type) && $k == $type) {
                             $active = 'active';
                         }
                         ?>

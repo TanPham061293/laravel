@@ -37,8 +37,8 @@
     <meta property="og:site_name" content="TIÊU ĐỀ SETTING" />
     <meta property="og:title" content="" />
     <meta property="og:description" content="" />
-    <meta property="og:url" content="http://localhost/caphemocnau/" />
-    <meta property="og:image" content="http://localhost/caphemocnau/thumbs/284x177x2/upload/photo/12-9670.jpg" />
+    <meta property="og:url" content="" />
+    <meta property="og:image" content="" />
     <meta property="og:image:alt" content="" />
     <meta property="og:image:type" content="image/jpeg" />
     <meta property="og:image:width" content="284" />
@@ -48,13 +48,13 @@
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:site" content="email@gmail.com" />
     <meta name="twitter:creator" content="TIÊU ĐỀ SETTING" />
-    <meta property="og:url" content="http://localhost/caphemocnau/" />
+    <meta property="og:url" content="" />
     <meta property="og:title" content="" />
     <meta property="og:description" content="" />
-    <meta property="og:image" content="http://localhost/caphemocnau/thumbs/284x177x2/upload/photo/12-9670.jpg" />
-
+    <meta property="og:image" content="" />
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <!-- Canonical -->
-    <link rel="canonical" href="http://localhost/caphemocnau/" />
+    <link rel="canonical" href="" />
 
     <!-- Chống đổi màu trên IOS -->
     <meta name="format-detection" content="telephone=no">

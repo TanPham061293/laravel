@@ -215,7 +215,7 @@
 
 <body class="sidebar-mini hold-transition text-sm login-page">
 
-    <div class="login-view-website text-sm"><a href="{{route('client.product')}}" target="_blank" title="Xem website">Xem website</a></div>
+    <div class="login-view-website text-sm"><a href="{{route('client.home')}}" target="_blank" title="Xem website">Xem website</a></div>
     <div class="login-box">
         <div class="card">
             <p class="">username: <strong>admin</strong></p>

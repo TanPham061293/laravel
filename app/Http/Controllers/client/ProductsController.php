@@ -8,7 +8,7 @@ use App\Models\admin\Product;
 use App\Models\admin\Detail;
 use App\Models\admin\Photo;
 use App\Models\admin\Statics;
-
+use Illuminate\Support\Facades\URL;
 
 class ProductsController extends Controller
 {
@@ -29,6 +29,7 @@ class ProductsController extends Controller
     }
     public function showlistItems(Request $req)
     {
+        
         $list_menu_nb = Product::where('type', 'san-pham')->where(function ($query) {
             $query->where('hienthi', '>', 0);
             $query->where('noibat', '>', 0);
@@ -67,6 +68,7 @@ class ProductsController extends Controller
         $slider = Photo::where('type', 'slide')->where('hienthi', '>', 0)->get();
         $favicon = Photo::where('type', 'favicon')->where('hienthi', '>', 0)->first();
         $logo = Photo::where('type', 'logo')->where('hienthi', '>', 0)->first();
+        $req->session()->put('url_href',URL::current());
         return view('client.templates.product.product_detail', compact('item','related_prd','slider', 'favicon', 'logo', 'footer','list_menu_nb'));
     }
 }

@@ -3,9 +3,9 @@
 require_once 'admin/type/config-type-product.php';
 //require_once 'admin/type/config-type-news.php';
 require_once 'admin/type/config-type-photo.php';
-//require_once 'admin/type/config-type-newsletter.php';
+require_once 'admin/type/config-type-newsletter.php';
 require_once 'admin/type/config-type-static.php'; //public
-//require_once 'admin/type/config-type.php';
+require_once 'admin/type/config-type.php';
 
 @endphp
 <!DOCTYPE html>

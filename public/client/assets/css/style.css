@@ -265,7 +265,8 @@ div._boxfb:hover{right: 0;}
 .chat_zalo{position: fixed;bottom: 180px;right: 5px;z-index: 998; }
 
 /*== Custom Breadcrumb ==*/
-.mybreadcrumb {text-align: center;display: block;box-shadow: 0 2px 5px rgba(0,0,0,0.25);overflow: hidden;border-radius: 5px;counter-reset: flag;}
+/* .mybreadcrumb {text-align: center;display: block;box-shadow: 0 2px 5px rgba(0,0,0,0.25);overflow: hidden;border-radius: 5px;counter-reset: flag;} */
+.mybreadcrumb {text-align: center;display: block;box-shadow: 0 0 5px rgba(0,0,0,0.25) ;overflow: hidden;border-radius: 5px;counter-reset: flag;font-family: UTM Beautiful Caps; font-size: 30px;color: #763800;font-weight: 700;}
 .mybreadcrumb a{text-decoration: none;}
 .mybreadcrumb__step {text-decoration: none;outline: none;display: block;float: left;font-size: 12px;line-height: 36px;padding: 0 10px 0 60px;position: relative;background: #fff;color: #985110;transition: background 0.5s;}
 .mybreadcrumb__step:first-child {padding-left: 46px;border-radius: 5px 0 0 5px;}
@@ -306,15 +307,25 @@ div._boxfb:hover{right: 0;}
 
 
 ._boxdh{padding: 15px;border: 3px solid #a1232e;}
-.quantity-col1 {clear: both;float: left;width: 84px;margin-right: 31px;}
+.quantity-col1 {clear: both;float: left;width: 90px;margin-right: 31px;}
 .quantity-label {line-height: 6px;font-size: 11px;color: #7b7b7b;}
 .quantity-col1 .tiki-number-input {margin: 0;}
 .quantity-col1 .tiki-number-input:before{display: table;content: "";clear: both;}
 .quantity-col1 .bootstrap-touchspin .input-group-btn {position: relative;white-space: nowrap;vertical-align: middle;display: table-cell;}
 .quantity-col1 .input-group-btn>.btn {display: block;float: none;width: 100%;max-width: 100%;line-height: 15px;font-size: 14px;font-weight: 300;height: 28px;position: relative;box-shadow: none;}
-.quantity-col1 .bootstrap-touchspin .input-group-btn .bootstrap-touchspin-down {border-radius: 4px 0 0 4px;border: 1px solid #dfdfdf;background: #fff;padding: 0 10px;}
+.quantity-col1 .bootstrap-touchspin .input-group-btn .bootstrap-touchspin-down, .btn-format {border-radius: 4px 0 0 4px;border: 1px solid #dfdfdf;background: #fff;padding: 0 10px;}
 .quantity-col1 .bootstrap-touchspin .input-group-btn .bootstrap-touchspin-up {border-radius: 0 4px 4px 0;border: 1px solid #dfdfdf;background: #fff;padding: 0 10px;}
 .quantity-col1 .bootstrap-touchspin [name=qty] {display: block;border: 0;border-top: 1px solid #dfdfdf;border-bottom: 1px solid #dfdfdf;height: 28px;padding: 0;width: 28px;text-align: center;}
+.quantity-col3 {clear: both;width: 90px;}
+.quantity-col3 .tiki-number-input {margin: 0;}
+.quantity-col3 .tiki-number-input:before{display: table;content: "";clear: both;}
+.quantity-col3 .bootstrap-touchspin .input-group-btn {position: relative;white-space: nowrap;vertical-align: middle;display: table-cell;}
+.quantity-col3 .input-group-btn>.btn {display: block;float: none;width: 100%;max-width: 100%;line-height: 15px;font-size: 14px;font-weight: 300;height: 28px;position: relative;box-shadow: none;}
+.quantity-col3 .bootstrap-touchspin .input-group-btn .bootstrap-touchspin-down, .btn-format {border-radius: 4px 0 0 4px;border: 1px solid #dfdfdf;background: #fff;padding: 0 10px;}
+.quantity-col3 .bootstrap-touchspin .input-group-btn .bootstrap-touchspin-up {border-radius: 0 4px 4px 0;border: 1px solid #dfdfdf;background: #fff;padding: 0 10px;}
+.quantity-col3 .bootstrap-touchspin [name=qty] {display: block;border: 0;border-top: 1px solid #dfdfdf;border-bottom: 1px solid #dfdfdf;height: 28px;padding: 0;width: 28px;text-align: center;}
+
+
 .add-to-cart {margin-top: 4px;width: 200px;height: 40px;border-radius: 4px;text-transform: uppercase;border: none;color: #fff;white-space: nowrap;cursor: pointer;vertical-align: top;font-size: 13px;padding: 0 0 0 30px;line-height: 40px;border-radius: 5px;background: url('../images/ic-cart2x.html') 22px center no-repeat #ff3945;font-weight: 400;letter-spacing: .5px;background-size: 26px;display: inline-block;text-align: center;}
 .buy-now {margin-top: 4px;margin-left: 30px;width: 115px;height: 40px;border-radius: 4px;text-transform: uppercase;border: none;color: #fff;white-space: nowrap;cursor: pointer;vertical-align: top;font-size: 13px;padding: 0;line-height: 40px;border-radius: 5px;background: #0289bb;font-weight: 400;letter-spacing: .5px;background-size: 26px;display: inline-block;text-align: center;}
 .box_title {width: 100%;height: 43px;border: 1px solid #d4d4d4;background: #fff;background: -moz-linear-gradient(top,#fff 0%,#f6f6f6 47%,#ededed 100%);background: -webkit-gradient(left top,left bottom,color-stop(0%,#fff),color-stop(47%,#f6f6f6),color-stop(100%,#ededed));background: -webkit-linear-gradient(top,#fff 0%,#f6f6f6 47%,#ededed 100%);background: -o-linear-gradient(top,#fff 0%,#f6f6f6 47%,#ededed 100%);background: -ms-linear-gradient(top,#fff 0%,#f6f6f6 47%,#ededed 100%);background: linear-gradient(to bottom,#fff 0%,#f6f6f6 47%,#ededed 100%);filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff',endColorstr='#ededed',GradientType=0);}
@@ -1512,7 +1523,7 @@ img.bounce_ball{position:relative;animation:bounce_ball 3s infinite;-webkit-anim
     background: url('../images/bg_gtmoi.png') repeat-x;
     margin-top: -109px;
     position: relative;
-    z-index: 999999;
+    z-index: 8888;
     padding-top: 140px;
 }
 .nametitle{
@@ -1541,7 +1552,7 @@ img.bounce_ball{position:relative;animation:bounce_ball 3s infinite;-webkit-anim
 ._btngray{background: #ea8222;color: white;}
 a._btngray:hover{color: white;}
 .modal{z-index: 9999999999;}
-#cartResult .modal-body{max-height: 300px;overflow-x: hidden;overflow-y: auto;}
+#cartResult .modal-body{overflow-x: hidden;overflow-y: auto;}
 #myCart .modal-dialog{width: 850px;max-width: 100%!important;}
 ._cartheader {position: fixed;right: 10px;z-index: 9999;top: 20%;}
 ._cartheader ._iconcart{position: relative;}
@@ -1594,3 +1605,18 @@ a._btngray:hover{color: white;}
     font-weight: 700;
     font-size: 20px;
 }
+._cart{
+    margin-left: 5px;
+    color: #1182FC;
+    font-weight: 800;
+}
+._cart:hover{
+   cursor: pointer;
+}
+.pos{
+    position: absolute;
+    left: 320px;
+    bottom: 8px;
+    font: 17px 'Muli-Bold';
+    padding: 12px 30px;
+ }

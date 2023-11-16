@@ -55,6 +55,7 @@ class HomeClientController extends Controller
         $register->ten = $req->fullname;
         $register->dienthoai = $req->phone;
         $register->email = $req->fullname;
+        $register->ngaytao = time();
         $register->type = 'dangkynhantin';
         $register->noidung = ($req->noidung != null) ? $req->noidung : '';
         $register->save();

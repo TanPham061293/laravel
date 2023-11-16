@@ -1,94 +1,150 @@
 
-function buyNow(id, qty) {
-    var url = '/cart/buynow.html';
-    $.ajax({
-        url: url,
-        type: "POST",
-        data: {
-            id: id,
-            qty: qty
+function buyNow(href, id) {
+    var parent = document.getElementById('qtySelector');
+    var qty = $(parent).find('input#qty').val()
+    return document.location = href + '?id=' + id + '&qty=' + qty;
+}
+
+function viewCart() {
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
         }
+    });
+    $.ajax({
+        url: '/xem-gio-hang',
+        type: "POST",
+    }).done(function (data) {
+        //alert(data);
+        if (Array.isArray(data)) {
+            console.log('ok');
+        }
+
     });
 }
 
-function buyNow_Qty(id) {
-    var qty = $('#qty').val();
-    var url = '/cart/buynow.html';
-    $.ajax({
-        url: url,
-        type: "POST",
-        data: {
-            id: id,
-            qty: qty
+function addCart_Qty(href, id = 0) {
+    var value = parseInt($('#qty').val());
+    var id = id;
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
         }
     });
-}
-
-function addCart_Qty(id = 0) {
-    var qty = $('#qty').val();
-    var url = 'ajax/addcart.php';
     $.ajax({
-        url: url,
-        type: "POST",
+        url: '/them-gio-hang',
+        type: 'POST',
         data: {
             id: id,
-            qty: qty
+            qty: value,
         }
     }).done(function (data) {
-        $('._load').load(' ._load');
-        $('._count').load(' ._count');
-        $('#cartResult').empty().html(data);
-        $('#myCart').modal();
-        //console.log(data);
+        alert(data);
+        $('._cartheader').load(' ._cartheader');
     });
 }
 
 function cartRemove(id) {
-    var url = 'ajax/removecart.php';
-    $.ajax({
-        url: url,
-        type: "POST",
-        data: {
-            id: id
-        }
-    }).done(function (data) {
-        $('._count').load(' ._count');
-        $('._load').load(' ._load');
-        $('#cartResult').empty().html(data);
-        $('#myCart').modal('show');
-    });
+    $conform = confirm('Bạn có chắc xoá sản phẩm khỏi giỏ hàng?')
+    if ($conform) {
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+        $.ajax({
+            url: '/xoa-gio-hang',
+            type: "POST",
+            data: {
+                id: id
+            }
+        }).done(function (data) {
+            $('._load').load(' ._load');
+            $('._cartheader').load(' ._cartheader');
+            alert(data);
+        });
+    }
+   
 }
 
-function cartChange(id, qty) {
-    var url = 'ajax/changecart.php';
+function cartChange(qty, changeQty, id) {
+    if (changeQty <= 0) {
+        alert('Số lượng mua phải lớn hơn 0.')
+        return false;
+    }
+
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+    });
     $.ajax({
-        url: url,
+        url: '/mua-hang',
         type: "POST",
         data: {
-            id: id,
-            qty: qty
+            'qty': changeQty,
+            'id': id
         }
     }).done(function (data) {
-        $('._count').load(' ._count');
         $('._load').load(' ._load');
-        $('#cartResult').empty().html(data);
-        $('#myCart').modal('show');
+
     });
+
 }
 
 $(document).on('click', '.bootstrap-touchspin-down', function () {
     var value = parseInt($('#qty').val());
     value = value - 1;
+    var href = location.href;
     if (value <= 0)
         return false;
+    if (href.includes('id')) {
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+        $.ajax({
+            url: '/mua-hang',
+            type: "POST",
+            data: {
+                'qty': value,
+                'href': href
+            }
+        }).done(function (data) {
+            $('#total_tt').html('<strong>' + data + '</strong>');
+            $('#totalQty').html(value);
+            $('#totalM').html('<strong>' + data + ' vnđ</strong>');
+        });
+    }
     $('#qty').val(value);
     return false;
 })
 $(document).on('click', '.bootstrap-touchspin-up', function () {
     var value = parseInt($('#qty').val());
     value = value + 1;
+    var href = location.href;
     if (value <= 0)
         return false;
+    if (href.includes('id')) {
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+        $.ajax({
+            url: '/mua-hang',
+            type: "POST",
+            data: {
+                'qty': value,
+                'href': href
+            }
+        }).done(function (data) {
+            $('#total_tt').html('<strong>' + data + '</strong>');
+            $('#totalQty').html(value);
+            $('#totalM').html('<strong>' + data + ' vnđ</strong>');
+        });
+    }
     $('#qty').val(value);
     return false;
 })
@@ -114,11 +170,9 @@ jQuery(document).ready(function () {
         var fullname = $('#fullname').val();
         var phone = $('#phone').val();
         var contactdk = $('#contactdk').val();
-  
-        if (newsLetter != 0 && fullname != ""  && phone != "")
-        {
-            if (isValidEmailAddress(newsLetter))
-            {
+
+        if (newsLetter != 0 && fullname != "" && phone != "") {
+            if (isValidEmailAddress(newsLetter)) {
                 emailNewsLetter(newsLetter, fullname, contactdk, phone);
                 return false;
             } else {
@@ -127,13 +181,11 @@ jQuery(document).ready(function () {
                 return false;
             }
         }
-        if (fullname == "")
-        {
+        if (fullname == "") {
             alert("Vui lòng nhập họ tên");
             jQuery('#email').focus();
             return false;
-        } else if (phone == "")
-        {
+        } else if (phone == "") {
             alert("Vui lòng nhập số điện thoại");
             jQuery('#email').focus();
             return false;

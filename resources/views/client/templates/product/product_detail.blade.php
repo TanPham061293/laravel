@@ -16,8 +16,8 @@
         <div class="row">
             <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6" data-aos="fade-right" data-aos-duration="1000">
                 <div style="border: thin #ebebeb solid;">
-                    <a href="{{ asset('uploads/thumbs/' . $item->photo) }}" class="MagicZoom" id="Zoomer"><img id="product_image_7"
-                            src="{{ asset('uploads/' . $item->photo) }}"></a>
+                    <a href="{{ asset('uploads/thumbs/' . $item->photo) }}" class="MagicZoom" id="Zoomer"><img
+                            id="product_image_7" src="{{ asset('uploads/' . $item->photo) }}"></a>
 
                     <div style="padding-top: 5px;" class="owl-carousel owl-theme owl-carousel6 text-center">
                         <div class="item_owl_sub">
@@ -54,8 +54,9 @@
                 <div>
                     {{ $item->motavi }}
                 </div>
+                <hr style="margin: 10px 0;">
                 <div>
-                    {{-- <div id="qtySelector" class="quantity-col1">
+                    <div id="qtySelector" class="quantity-col1">
                         <p class="quantity-label">Số lượng:</p>
                         <p class="tiki-number-input">
                         <div class="input-group bootstrap-touchspin">
@@ -71,10 +72,18 @@
                             </span>
                         </div>
                         </p>
-                    </div> --}}
-                    {{-- <div class="product-actions">
-                        <button type="button" onclick="addCart_Qty(313)" class="btnAddToCart">MUA NGAY</button>
-                    </div> --}}
+                    </div>
+                    <div class="product-actions">
+                        <button type="button" onclick="buyNow('{{ route('byNow') }}','{{ $item->id }}')"
+                            class="btnAddToCart">MUA NGAY</button>
+                    </div>
+                </div>
+                <div class="clearfix margin-bottom-10"></div>
+                <div class='col-6 _cart'>
+                    <p onclick="addCart_Qty('{{route('addCart')}}','{{$item->id}}')"> 
+                        <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+                        <span>Thêm vào giỏ hàng</span></button>
+                    </a>
                 </div>
                 <div class="clearfix"></div>
                 <hr>
@@ -131,7 +140,7 @@
                                 </div>
                                 <div class="_box-price">
                                     <div class="_namepr"><a href="/san-pham/item/{{ $v->tenkhongdauvi }}"
-                                            title="{{$v->tenvi}}">{{$v->tenvi}}</a></div>
+                                            title="{{ $v->tenvi }}">{{ $v->tenvi }}</a></div>
                                     @if ($v->giamoi != 0)
                                         <div class="_pricekm">
                                             Giá:&nbsp{{ number_format($v->giamoi) . ' VNĐ' }} </div>
@@ -150,6 +159,7 @@
                     </div>
                 </div>
             </div>
+            <div class="clearfix margin-bottom-20"></div>
         @endif
     </div>
 @endsection
